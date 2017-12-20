@@ -1,4 +1,4 @@
-from rds import InstanceCollector
+from rds import InstanceCollector, EngineVersionCollector, ReservedInstanceCollector, SecurityGroupsCollector
 from cloudtrail import TrailsCollector
 from cloudwatch import AlarmsCollector, MetricsCollector
 from iam import UsersCollector, GroupsCollector, RolesCollector, PolicyCollector
@@ -12,15 +12,15 @@ def main():
     #     print(bucket.name, bucket.arn)
 
     # Route 53
-    domains = DomainsCollector().collect()
-    if domains:
-        for domain in domains:
-            print(domain)
-
-    hosted_zones = HostedZoneCollector().collect()
-    if hosted_zones:
-        for hz in hosted_zones:
-            print(hz)
+    # domains = DomainsCollector().collect()
+    # if domains:
+    #     for domain in domains:
+    #         print(domain)
+    #
+    # hosted_zones = HostedZoneCollector().collect()
+    # if hosted_zones:
+    #     for hz in hosted_zones:
+    #         print(hz)
 
     # IAM
     # for user in UsersCollector().collect():
@@ -47,8 +47,17 @@ def main():
     #     print(trail)
 
     # RDS
-    # for instance in InstanceCollector().collect():
-    #     print(instance)
+    for instance in InstanceCollector().collect():
+        print(instance)
+
+    for instance in ReservedInstanceCollector().collect():
+        print(instance)
+
+    for engine_version in EngineVersionCollector().collect():
+        print(engine_version)
+
+    for group in SecurityGroupsCollector().collect():
+        print(group)
 
 
 if __name__ == '__main__':

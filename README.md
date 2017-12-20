@@ -36,6 +36,9 @@ This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-rep
     * Trails - _done_
 * RDS
     * Instances - _done_
+    * Reserved Instances - _done_
+    * Engine Versions - _done_ - _not really a consumed resource, but very useful to know_
+    * Security Groups - _done_
 * DynamoDB
 * Lambda
 * API Gateway
