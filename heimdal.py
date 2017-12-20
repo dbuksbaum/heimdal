@@ -1,11 +1,12 @@
-from AWSCollector import AWSCollector
+from buckets import BucketsCollector
+
 
 def main():
-#    bc = BucketsCollector()
-#    buckets = bc.collect()
-#    for bucket in buckets:
-#        print(bucket.name)
-#
+    bc = BucketsCollector()
+    buckets = bc.collect()
+    for bucket in buckets:
+        print(bucket.name, bucket.arn)
+
     # dc = DomainsCollector()
     # domains = dc.collect()
     # if domains:
@@ -17,12 +18,6 @@ def main():
     # if hosted_zones:
     #     for hz in hosted_zones:
     #         print(hz)
-
-    collector = AWSCollector()
-    buckets = collector.collect_s3_buckets()
-    for bucket in buckets:
-        print(bucket.name, bucket.arn)
-
 
     #aws = boto3.client('route53domains')
     #domains = aws.list_domains()['Domains']
