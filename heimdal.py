@@ -1,8 +1,3 @@
-
-import boto3
-from buckets import BucketsCollector
-from domains import DomainsCollector
-from hostedzonecollector import HostedZoneCollector
 from AWSCollector import AWSCollector
 
 def main():
