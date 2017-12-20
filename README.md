@@ -16,7 +16,51 @@ This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-rep
 * Evaluate resources for compliance to defined rules (tags, scale, security, etc)
 * Allocate & track costs over time
 
-## Resources, References, and Tools Used
+# To-Do List
+## Collections
+* S3
+    * Buckets - _done_
+    * Web Sites
+* Route 53
+    * Domains - _done_
+    * Hosted Zones - _done_
+* IAM
+    * Users
+    * Groups
+    * Roles
+    * User Policies
+    * Group Policies
+    * Password Policies
+    * Group Users
+    * Credentials
+    * MFA Devices
+    * Virtual MFA Devices
+* Cloud Watch
+* Cloud Trails
+* RDS
+* DynamoDB
+* Lambda
+* API Gateway
+* Cloud Front
+* EC2
+* VPC
+* EBS
+* ELB
+* SNS
+* SQS
+* SES
+* ACM
+* RedShift
+
+## Functions
+* Determine Idle Resources
+* Shut down idle resources
+* Verify tagging policy
+* Security checks
+* Allocate costs across accounts, tags
+* Calculate utilization & cost trends
+
+# Resources, References, and Tools Used
 * [Boto3 Documentation](http://boto3.readthedocs.io/en/stable/index.html)
 * [BotoCore Documentation](http://botocore.readthedocs.io/en/latest/index.html)
 * [AWS Documentation](https://aws.amazon.com/documentation/)
