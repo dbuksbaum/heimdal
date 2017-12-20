@@ -12,15 +12,15 @@ def main():
     #     print(bucket.name, bucket.arn)
 
     # Route 53
-    # domains = DomainsCollector().collect()
-    # if domains:
-    #     for domain in domains:
-    #         print(domain)
-    #
-    # hosted_zones = HostedZoneCollector().collect()
-    # if hosted_zones:
-    #     for hz in hosted_zones:
-    #         print(hz)
+    domains = DomainsCollector().collect()
+    if domains:
+        for domain in domains:
+            print(domain)
+
+    hosted_zones = HostedZoneCollector().collect()
+    if hosted_zones:
+        for hz in hosted_zones:
+            print(hz)
 
     # IAM
     # for user in UsersCollector().collect():
@@ -47,8 +47,8 @@ def main():
     #     print(trail)
 
     # RDS
-    for instance in InstanceCollector().collect():
-        print(instance)
+    # for instance in InstanceCollector().collect():
+    #     print(instance)
 
 
 if __name__ == '__main__':

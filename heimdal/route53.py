@@ -10,12 +10,16 @@ class DomainsCollector(BaseCollector):
         self.region=region
 
     def list_all_domains(self):
+        svc = super().getClient(serviceName='route53domains', region=self.region)
         marker = None
         fetchPending = True
         domains = []
 
         while fetchPending:
-            result = super().getClient(serviceName='route53domains', region=self.region).list_domains()
+            if marker:
+                result = svc.list_domains(Marker=marker)
+            else:
+                result = svc.list_domains()
             domains.extend(result['Domains'])
             if 'NextPageMarker' in result:
                 marker = result['NextPageMarker']
@@ -39,15 +43,19 @@ class HostedZoneCollector(BaseCollector):
         self.region=region
 
     def list_all_hosted_zones(self):
+        svc = super().getClient(serviceName='route53', region=self.region)
         marker = None
         fetchPending = True
         domains = []
 
         while fetchPending:
-            result = super().getClient(serviceName='route53', region=self.region).list_hosted_zones()
+            if marker:
+                result = svc.list_hosted_zones(Marker=marker)
+            else:
+                result = svc.list_hosted_zones()
             domains.extend(result['HostedZones'])
-            if 'NextPageMarker' in result:
-                marker = result['NextMarker']
+            if 'Marker' in result:
+                marker = result['Marker']
                 fetchPending = True
             else:
                 fetchPending = False
