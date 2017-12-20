@@ -30,6 +30,8 @@ This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-rep
     * Roles - _done_
     * Policies - _done_
 * Cloud Watch
+    * Alarms - _done_
+    * Metrics - _done_
 * Cloud Trails
 * RDS
 * DynamoDB
