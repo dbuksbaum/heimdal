@@ -33,7 +33,9 @@ This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-rep
     * Alarms - _done_
     * Metrics - _done_
 * Cloud Trails
+    * Trails - _done_
 * RDS
+    * Instances - _done_
 * DynamoDB
 * Lambda
 * API Gateway

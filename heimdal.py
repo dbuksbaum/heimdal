@@ -1,3 +1,4 @@
+from rds import InstanceCollector
 from cloudtrail import TrailsCollector
 from cloudwatch import AlarmsCollector, MetricsCollector
 from iam import UsersCollector, GroupsCollector, RolesCollector, PolicyCollector
@@ -42,8 +43,12 @@ def main():
     #     print(metric.name)
 
     # Cloud Trail
-    for trail in TrailsCollector().collect():
-        print(trail)
+    # for trail in TrailsCollector().collect():
+    #     print(trail)
+
+    # RDS
+    for instance in InstanceCollector().collect():
+        print(instance)
 
 
 if __name__ == '__main__':
