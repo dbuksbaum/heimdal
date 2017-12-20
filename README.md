@@ -25,16 +25,10 @@ This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-rep
     * Domains - _done_
     * Hosted Zones - _done_
 * IAM
-    * Users
-    * Groups
-    * Roles
-    * User Policies
-    * Group Policies
-    * Password Policies
-    * Group Users
-    * Credentials
-    * MFA Devices
-    * Virtual MFA Devices
+    * Users - _done_
+    * Groups - _done_
+    * Roles - _done_
+    * Policies - _done_
 * Cloud Watch
 * Cloud Trails
 * RDS

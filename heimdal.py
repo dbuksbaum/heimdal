@@ -1,27 +1,38 @@
-from buckets import BucketsCollector
+from iam import UsersCollector, GroupsCollector, RolesCollector, PolicyCollector
+from route53 import DomainsCollector, HostedZoneCollector
+from s3 import BucketsCollector
 
 
 def main():
-    bc = BucketsCollector()
-    buckets = bc.collect()
-    for bucket in buckets:
-        print(bucket.name, bucket.arn)
+    # S3
+    # for bucket in BucketsCollector().collect():
+    #     print(bucket.name, bucket.arn)
 
-    # dc = DomainsCollector()
-    # domains = dc.collect()
+    # Route 53
+    # domains = DomainsCollector().collect()
     # if domains:
     #     for domain in domains:
     #         print(domain)
     #
-    # hzc = HostedZoneCollector()
-    # hosted_zones = hzc.collect()
+    # hosted_zones = HostedZoneCollector().collect()
     # if hosted_zones:
     #     for hz in hosted_zones:
     #         print(hz)
 
-    #aws = boto3.client('route53domains')
-    #domains = aws.list_domains()['Domains']
-    #print(domains)
+    # IAM
+    for user in UsersCollector().collect():
+        print(user.name, user.arn)
+
+    for group in GroupsCollector().collect():
+        print(group.name, group.arn)
+
+    for role in RolesCollector().collect():
+        print(role.name, role.arn)
+
+    for policy in PolicyCollector().collect():
+        print(policy.policy_name, policy.arn)
+
+
 
 if __name__ == '__main__':
     # execute only if run as a script
