@@ -1,9 +1,10 @@
 # Heimdal
 
-A simple Python library with two objectives:
+A simple Python library with three objectives:
 
 1. Help me keep track of my AWS resources
 2. Help me learn python
+3. Improve my knowledge & efficiency of AWS
 
 This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-reports) project by Tensult.
 

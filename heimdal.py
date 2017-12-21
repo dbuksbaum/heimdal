@@ -4,9 +4,14 @@ from cloudwatch import AlarmsCollector, MetricsCollector
 from iam import UsersCollector, GroupsCollector, RolesCollector, PolicyCollector
 from route53 import DomainsCollector, HostedZoneCollector
 from s3 import BucketsCollector
-
+import logging
 
 def main():
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
+    logger.info("Starting main!")
+
     # S3
     # for bucket in BucketsCollector().collect():
     #     print(bucket.name, bucket.arn)
@@ -58,6 +63,8 @@ def main():
 
     for group in SecurityGroupsCollector().collect():
         print(group)
+
+    logger.info("Ending main!")
 
 
 if __name__ == '__main__':
