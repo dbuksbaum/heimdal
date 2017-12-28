@@ -41,6 +41,9 @@ This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-rep
     * Engine Versions - _done_ - _not really a consumed resource, but very useful to know_
     * Security Groups - _done_
 * DynamoDB
+    * Tables - _done_
+    * Streams - _done_
+    * Table Streams - _done_
 * Lambda
 * API Gateway
 * Cloud Front
