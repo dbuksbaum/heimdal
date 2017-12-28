@@ -46,9 +46,9 @@ class StreamsCollector(BaseCollector):
                 else:
                     result = svc.list_streams()
 
-                streams.extend(result['Streams'])
+            streams.extend(result['Streams'])
 
-            if 'Marker' in result:
+            if 'LastEvaluatedStreamArn' in result:
                 marker = result['LastEvaluatedStreamArn']
                 fetchPending = True
             else:

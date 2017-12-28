@@ -45,6 +45,11 @@ This library is inspired by [Cloud Reports](https://github.com/tensult/cloud-rep
     * Streams - _done_
     * Table Streams - _done_
 * Lambda
+    * Functions - _done_
+    * Aliases - _done_
+    * Event Sources - _done_
+    * Versions by Function
+    * Event Sources by Function
 * API Gateway
 * Cloud Front
 * EC2

@@ -1,3 +1,4 @@
+from lambda_functions import FunctionCollector, AliasCollector, EventSourceCollector
 from dynamodb import TablesCollector, StreamsCollector, TableStreamsCollector
 from rds import InstanceCollector, EngineVersionCollector, ReservedInstanceCollector, SecurityGroupsCollector
 from cloudtrail import TrailsCollector
@@ -66,13 +67,22 @@ def main():
     #     print(group)
 
     # DynamoDB
-    for table in TablesCollector().collect():
-        print(table.table_name, table.table_arn)
-        for stream in TableStreamsCollector(table_name=table.table_name).collect():
-            print(stream)
+    # for table in TablesCollector().collect():
+    #     print(table.table_name, table.table_arn)
+    #     for stream in TableStreamsCollector(table_name=table.table_name).collect():
+    #         print(stream)
+    #
+    # for stream in StreamsCollector().collect():
+    #     print(stream)
 
-    for stream in StreamsCollector().collect():
-        print(stream)
+    # Lambda
+    for function in FunctionCollector().collect():
+        print(function)
+        for alias in AliasCollector(function['FunctionName']).collect():
+            print(alias)
+
+    for event_source in EventSourceCollector().collect():
+        print(event_source)
 
 
     logger.info("Ending main!")
