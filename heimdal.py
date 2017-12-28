@@ -1,3 +1,4 @@
+from dynamodb import TablesCollector, StreamsCollector, TableStreamsCollector
 from rds import InstanceCollector, EngineVersionCollector, ReservedInstanceCollector, SecurityGroupsCollector
 from cloudtrail import TrailsCollector
 from cloudwatch import AlarmsCollector, MetricsCollector
@@ -52,17 +53,27 @@ def main():
     #     print(trail)
 
     # RDS
-    for instance in InstanceCollector().collect():
-        print(instance)
+    # for instance in InstanceCollector().collect():
+    #     print(instance)
+    #
+    # for instance in ReservedInstanceCollector().collect():
+    #     print(instance)
+    #
+    # for engine_version in EngineVersionCollector().collect():
+    #     print(engine_version)
+    #
+    # for group in SecurityGroupsCollector().collect():
+    #     print(group)
 
-    for instance in ReservedInstanceCollector().collect():
-        print(instance)
+    # DynamoDB
+    for table in TablesCollector().collect():
+        print(table.table_name, table.table_arn)
+        for stream in TableStreamsCollector(table_name=table.table_name).collect():
+            print(stream)
 
-    for engine_version in EngineVersionCollector().collect():
-        print(engine_version)
+    for stream in StreamsCollector().collect():
+        print(stream)
 
-    for group in SecurityGroupsCollector().collect():
-        print(group)
 
     logger.info("Ending main!")
 
